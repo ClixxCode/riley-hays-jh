@@ -275,6 +275,32 @@
       animation: fadeUp 0.8s var(--ease) 0.65s both;
     }
 
+    .hero-body {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
+    }
+    .hero-text { flex: 1; min-width: 0; }
+    .hero-badge {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: fadeUp 0.8s var(--ease) 0.9s both;
+    }
+    .hero-badge img {
+      width: 200px;
+      height: auto;
+      filter: drop-shadow(0 8px 24px rgba(0,0,0,0.4));
+      transition: transform 0.3s var(--ease);
+    }
+    .hero-badge img:hover { transform: scale(1.05) rotate(3deg); }
+    @media (max-width: 720px) {
+      .hero-body { flex-direction: column; gap: 32px; }
+      .hero-badge img { width: 130px; }
+    }
+
     .hero-stats {
       display: flex;
       gap: 48px;
@@ -306,11 +332,11 @@
     }
     .awards-track {
       display: flex;
-      gap: 32px;
+      gap: 24px;
       align-items: center;
-      animation: scroll 32s linear infinite;
-      width: max-content;
-      padding: 8px 0;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 8px 32px;
     }
     .awards-track img {
       height: 96px;
@@ -324,17 +350,6 @@
       from { transform: translateX(0); }
       to   { transform: translateX(-50%); }
     }
-    .awards-strip::before,
-    .awards-strip::after {
-      content: '';
-      position: absolute;
-      top: 0; bottom: 0;
-      width: 80px;
-      z-index: 3;
-      pointer-events: none;
-    }
-    .awards-strip::before { left: 0; background: linear-gradient(to right, var(--navy), transparent); }
-    .awards-strip::after  { right: 0; background: linear-gradient(to left, var(--bg), transparent); }
 
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(24px); }
@@ -973,15 +988,23 @@
   <div class="hero-overlay"></div>
 
   <div class="hero-content">
-    <div class="hero-eyebrow">Proudly serving Central &amp; NW Arkansas</div>
+    <div class="hero-body">
+      <div class="hero-text">
+        <div class="hero-eyebrow">Proudly serving Central &amp; NW Arkansas</div>
 
-    <h1 class="hero-title">Arkansas's most<br>trusted roofers.</h1>
+        <h1 class="hero-title">Arkansas's most<br>trusted roofers.</h1>
 
-    <p class="hero-sub">Family-owned residential &amp; commercial roofing built on craftsmanship, honesty, and southern hospitality.</p>
+        <p class="hero-sub">Family-owned residential &amp; commercial roofing built on craftsmanship, honesty, and southern hospitality.</p>
 
-    <div class="hero-actions">
-      <a href="/contact-us/" class="btn btn-red">Get a Free Estimate</a>
-      <a href="tel:501-747-1400" class="btn btn-outline">501-747-1400</a>
+        <div class="hero-actions">
+          <a href="/contact-us/" class="btn btn-red">Get a Free Estimate</a>
+          <a href="tel:501-747-1400" class="btn btn-outline">501-747-1400</a>
+        </div>
+      </div>
+
+      <div class="hero-badge">
+        <img src="https://fresh-riley-hays.lovable.app/assets/best-2025-DRN6gCIt.png" alt="Arkansas Democrat-Gazette Best of the Best 2025">
+      </div>
     </div>
 
     <div class="hero-stats">
@@ -1003,16 +1026,7 @@
 
 <!-- ══ AWARDS STRIP ══════════════════════════════════════ -->
 <div class="awards-strip">
-  <div class="awards-track" id="awardsTrack">
-    <img src="https://fresh-riley-hays.lovable.app/assets/best-2018-BiSmZfc6.png" alt="Best of the Best 2018">
-    <img src="https://fresh-riley-hays.lovable.app/assets/best-2019-l1a2niHM.png" alt="Best of the Best 2019">
-    <img src="https://fresh-riley-hays.lovable.app/assets/best-2020-W23tw-GG.png" alt="Best of the Best 2020">
-    <img src="https://fresh-riley-hays.lovable.app/assets/best-2021-DcVofO7q.png" alt="Best of the Best 2021">
-    <img src="https://fresh-riley-hays.lovable.app/assets/best-2022-H0mZXl4F.png" alt="Best of the Best 2022">
-    <img src="https://fresh-riley-hays.lovable.app/assets/best-2023-DMex4w7D.png" alt="Best of the Best 2023">
-    <img src="https://fresh-riley-hays.lovable.app/assets/best-2024-CPFPVkuo.png" alt="Best of the Best 2024">
-    <img src="https://fresh-riley-hays.lovable.app/assets/best-2025-DRN6gCIt.png" alt="Best of the Best 2025">
-    <!-- duplicate for seamless loop -->
+  <div class="awards-track">
     <img src="https://fresh-riley-hays.lovable.app/assets/best-2018-BiSmZfc6.png" alt="Best of the Best 2018">
     <img src="https://fresh-riley-hays.lovable.app/assets/best-2019-l1a2niHM.png" alt="Best of the Best 2019">
     <img src="https://fresh-riley-hays.lovable.app/assets/best-2020-W23tw-GG.png" alt="Best of the Best 2020">
@@ -1029,7 +1043,7 @@
   <div class="container">
     <div class="services-header reveal">
       <span class="eyebrow eyebrow-navy">What we do</span>
-      <h2 class="section-title">Roofing for every<br>Arkansas building.</h2>
+      <h2 class="section-title" style="white-space:nowrap;">Roofing for every Arkansas building.</h2>
       <p>From a single shingle repair to a full commercial re-roof, our crew shows up on time, works clean, and stands behind every nail.</p>
     </div>
 
