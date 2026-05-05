@@ -130,11 +130,7 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
-      padding: 0 32px;
       height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
       background: rgba(250, 248, 244, 0.95);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
@@ -142,8 +138,17 @@
       transition: box-shadow 0.3s var(--ease);
     }
     .nav.scrolled { box-shadow: 0 4px 24px rgba(23, 49, 109, 0.08); }
+    .nav-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 32px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-    .nav-logo img { height: 44px; width: auto; }
+    .nav-logo img { height: 53px; width: auto; }
 
     .nav-links {
       display: flex;
@@ -964,21 +969,23 @@
 
 <!-- ══ NAV ══════════════════════════════════════════════ -->
 <header class="nav" id="nav">
-  <a href="/" class="nav-logo">
-    <img src="https://fresh-riley-hays.lovable.app/assets/logo-vqYBWuNU.png" alt="Riley Hays Roofing &amp; Construction">
-  </a>
-  <nav>
-    <ul class="nav-links">
-      <li><a href="/Residential-roofing/">Residential</a></li>
-      <li><a href="/commercial-roofing/">Commercial</a></li>
-      <li><a href="/roof-repairs/storm-damage-repair/">Storm Damage</a></li>
-      <li><a href="/roofing-gallery/">Gallery</a></li>
-      <li><a href="/about-us/">About</a></li>
-    </ul>
-  </nav>
-  <div class="nav-cta">
-    <a href="tel:501-747-1400" class="nav-phone">501-747-1400</a>
-    <a href="/contact-us/" class="btn btn-red">Get a Free Estimate</a>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="https://fresh-riley-hays.lovable.app/assets/logo-vqYBWuNU.png" alt="Riley Hays Roofing &amp; Construction">
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="/Residential-roofing/">Residential</a></li>
+        <li><a href="/commercial-roofing/">Commercial</a></li>
+        <li><a href="/roof-repairs/storm-damage-repair/">Storm Damage</a></li>
+        <li><a href="/roofing-gallery/">Gallery</a></li>
+        <li><a href="/about-us/">About</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:501-747-1400" class="nav-phone">501-747-1400</a>
+      <a href="/contact-us/" class="btn btn-red">Get a Free Estimate</a>
+    </div>
   </div>
 </header>
 
